@@ -1,23 +1,24 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import CardComponent from './components/card'
+import Header from './components/Header'
 
 function App() {
+  const [data, setData] = useState({});
+  
+  
+  React.useEffect(() => {
+    fetch(
+      'https://api.openweathermap.org/data/2.5/weather?id=3433955&appid=9e72f6e3ff1d4141f899331e1102e50c'
+      )
+        .then((res) => res.json ())
+        .then((dataApi) => setData(dataApi));
+  })
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='container'>
+      <Header/>
+    <CardComponent data={data}/>
     </div>
   );
 }
