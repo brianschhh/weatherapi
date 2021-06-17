@@ -11,6 +11,7 @@ const CardComponent = (props) => (
       <Image src='https://contactonews.co/storage/images/thumb-large-Obelisco-Buenos-Aires.jpg' wrapped ui={false} />
       <Card.Content>
         <Card.Header>{props.data.name}</Card.Header>
+        
         <Card.Meta>
             <div>pais: {props.data.sys.country} </div>
         </Card.Meta>
@@ -30,7 +31,6 @@ const CardComponent = (props) => (
         <div>temperatura maxima: {props.data.main.temp_max} </div>
         </Card.Meta>
        
-      
       </Card.Content>
       
     </Card>
